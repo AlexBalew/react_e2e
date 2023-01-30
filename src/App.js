@@ -28,14 +28,14 @@
 // export default App;
 
 import React from 'react';
-import AppRouter from "./router/AppRouter";
-// import Users from './components/users/Users'
+import { Navbar } from './components/navbar/Navbar';
+import AppRouter from './router/AppRouter';
 
 const App = () => {
     return (
         <div>
+            <Navbar />
             <AppRouter />
-            {/* <Users /> */}
         </div>
     );
 };
