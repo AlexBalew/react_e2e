@@ -1,16 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import App from './App';
+import { createReduxStore } from './store/store';
 
 
 describe('router test', () => {
 
     test('router test', () => {
         render(
-            <MemoryRouter>
-                <App />
-            </MemoryRouter>
+            <Provider store={createReduxStore()}>
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
+            </Provider>
         );
         const mainLink = screen.getByTestId('main-page-main');
         const aboutLink = screen.getByTestId('about-page-main');
@@ -29,4 +33,3 @@ describe('router test', () => {
         expect(screen.getByTestId('error-page')).toBeInTheDocument();
     })
 })
-

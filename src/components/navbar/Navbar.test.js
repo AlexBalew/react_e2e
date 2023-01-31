@@ -4,7 +4,7 @@ import { renderWithRouter } from '../../tests/utils/renderWithRouter';
 import { Navbar } from './Navbar';
 
 describe('navbar test', () => {
-    
+
     afterEach(() => {
         jest.clearAllMocks()
     })

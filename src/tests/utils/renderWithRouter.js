@@ -1,12 +1,16 @@
-import { render } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
-import AppRouter from '../../router/AppRouter'
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
+import AppRouter from '../../router/AppRouter';
+import { createReduxStore } from '../../store/store';
 
-export const renderWithRouter = (component, initialRoute = './') => {
+export const renderWithRouter = (component, initialRoute = '/') => {
     return render(
-        <MemoryRouter initialEntries={[initialRoute]}>
-            <AppRouter />
-            {component}
-        </MemoryRouter>
+        <Provider store={createReduxStore()}>
+            <MemoryRouter initialEntries={[initialRoute]}>
+                <AppRouter />
+                {component}
+            </MemoryRouter>
+        </Provider>
     )
 }
